@@ -1,1 +1,1 @@
-find . | wc -l
+find . -mindepth 1 | wc -l
