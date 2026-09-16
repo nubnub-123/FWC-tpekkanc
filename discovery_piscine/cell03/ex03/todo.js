@@ -3,7 +3,7 @@ const newBtn = document.getElementById("newBtn");
 
 let todos = [];
 
-// โหลดข้อมูลจาก cookie
+// โหลดข้อมูลจาก cookie ตอนเปิดหน้าเว็บ
 loadTodos();
 
 // ปุ่ม New
@@ -13,14 +13,14 @@ newBtn.addEventListener("click", function () {
 
     if (text && text.trim() !== "") {
 
-        todos.unshift(text);
+        todos.unshift(text.trim());
 
         saveTodos();
         renderTodos();
     }
 });
 
-// แสดงรายการ
+// แสดงรายการทั้งหมด
 function renderTodos() {
 
     ft_list.innerHTML = "";
@@ -47,35 +47,28 @@ function renderTodos() {
     });
 }
 
-// บันทึก cookie
+// บันทึกลง Cookie
 function saveTodos() {
 
     document.cookie =
         "todos=" +
         encodeURIComponent(JSON.stringify(todos)) +
-        ";path=/";
+        ";max-age=31536000;path=/";
 }
 
-// โหลด cookie
+// โหลดจาก Cookie
 function loadTodos() {
 
-    const cookies = document.cookie.split(";");
+    const match = document.cookie.match(
+        /(?:^|;\s*)todos=([^;]+)/
+    );
 
-    for (let c of cookies) {
+    if (match) {
 
-        c = c.trim();
+        todos = JSON.parse(
+            decodeURIComponent(match[1])
+        );
 
-        if (c.startsWith("todos=")) {
-
-            const value = decodeURIComponent(
-                c.substring(6)
-            );
-
-            todos = JSON.parse(value);
-
-            renderTodos();
-
-            return;
-        }
+        renderTodos();
     }
 }
