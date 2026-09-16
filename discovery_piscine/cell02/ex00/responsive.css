@@ -1,26 +1,42 @@
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
+body {
+    margin: 50px;
+    font-family: Arial, sans-serif;
 }
 
-table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
+.menu {
+    position: relative;
+    display: inline-block;
 }
 
-td {
-    width: 50%;
-    border: 1px solid black;
-    padding-left: 10px;
-    vertical-align: middle;
+.button {
+    background-color: #0066cc;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
-.left {
-    background-color: #c0c97b;
+.content {
+    display: none;
+    position: absolute;
+    min-width: 180px;
+    background-color: white;
+    border: 1px solid #cccccc;
 }
 
-.right {
-    background-color: #e8b9a7;
+.content a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.content a:hover {
+    background-color: #eeeeee;
+}
+
+.menu:hover .content {
+    display: block;
 }

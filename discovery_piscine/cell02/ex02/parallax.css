@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.parallax1,
+.parallax2 {
+    height: 100vh;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax1 {
+    background-image: url("https://tse2.mm.bing.net/th/id/OIP.M2kYPBaM2gtWjThuhRgfgAHaHa?r=0&w=720&h=720&rs=1&pid=ImgDetMain&o=7&rm=3");
+}
+
+.parallax2 {
+    background-image: url("https://i.pinimg.com/236x/61/dd/c2/61ddc25df96053a901023dea5cde0b4f.jpg");
+}
+
+.text {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+}
+
+.content {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
